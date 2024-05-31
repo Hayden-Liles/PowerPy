@@ -68,36 +68,6 @@ def check_for_admin():
     if not is_admin():
         run_as_admin()
 
-def parse_acl_output(output: str) -> dict[str, Union[str, list[str]]]:
-    """
-    Parses the output from the Get-Acl command into a structured dictionary.
-
-    Args:
-        output (str): The raw string output from the Get-Acl command.
-
-    Returns:
-        Dict[str, Union[str, List[str]]]: A dictionary containing the parsed ACL data.
-    """
-    lines = output.split('\n')
-    acl_dict = {}
-    current_key = None
-    current_values = []
-
-    for line in lines:
-        if ':' in line:
-            if current_key is not None:
-                acl_dict[current_key] = current_values if len(current_values) > 1 else current_values[0]
-            split_line = line.split(':', 1)
-            current_key = split_line[0].strip()
-            current_values = [split_line[1].strip()]
-        else:
-            current_values.append(line.strip())
-
-    if current_key is not None:
-        acl_dict[current_key] = current_values if len(current_values) > 1 else current_values[0]
-
-    return acl_dict
-
 def get_permissions(path: file_path, filter: str = None, include: str = None, exclude: str = None, audit: bool = False, use_transaction: bool = False) -> dict[str, Union[str, list[str]]]:
     command = f"Get-Acl -Path '{path}'"
     if filter:
@@ -118,7 +88,7 @@ def get_permissions(path: file_path, filter: str = None, include: str = None, ex
             raise Exception("The script requires additional privileges to access audit information. Please run as Administrator.")
         else:
             raise Exception(f"PowerShell Command Failed: {result.stderr}")
-    return parse_acl_output(result.stdout)
+    return result.stdout
 
 
 
