@@ -7,7 +7,7 @@ from System.Security.AccessControl import FileSystemAccessRule, FileSystemRights
 from System.IO import File
 from System import Type  # Import Type from System namespace
 
-def add_file_security(file_path):
+def get_file_permissions(file_path):
     # Initialize an empty dictionary to hold the security information
     security_info = {
         "Owner": "",
