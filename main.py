@@ -78,7 +78,6 @@ def set_acl(path: str, acl_data: dict):
     except Exception as e:
         raise Exception(f"Failed to set ACL: {e}")
 
-# Example usage
 path = r"C:/Users/Hayden/OneDrive/Desktop/acltest"
 acl_info = get_acl(path, include_audit=True)
 print(acl_info)
