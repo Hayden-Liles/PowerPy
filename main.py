@@ -83,7 +83,6 @@ def set_acl(path: str, acl_data: dict):
 #TODO - Need to add Active Directory functions
 
 def get_appv_packages():
-    # Define the PowerShell command
     ps_command = """
     $packages = Get-AppvClientPackage;
     $output = @();
@@ -108,8 +107,44 @@ def get_appv_packages():
 
     return packages
 
+def get_appx_packages():
+    ps_command = """
+    $packages = Get-AppxPackage;
+    $output = @();
+    foreach ($package in $packages) {
+        $output += @{
+            Name = $package.Name;
+            Publisher = $package.Publisher;
+            Architecture = $package.Architecture;
+            InstallLocation = $package.InstallLocation;
+        };
+    }
+    ConvertTo-Json -InputObject $output -Compress
+    """
 
-print(get_appv_packages())
+    result = subprocess.run(["powershell", "-Command", ps_command], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    if result.returncode!= 0:
+        print(f"Error executing PowerShell command: {result.stderr}")
+        return []
+
+    packages = json.loads(result.stdout)
+
+    return packages
+
+def remove_appx_package(package_name):
+    ps_command = f"Remove-AppxPackage -Package {package_name}"
+
+    result = subprocess.run(["powershell", "-Command", ps_command], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+
+    if result.returncode!= 0:
+        print(f"Error removing AppxPackage: {result.stderr}")
+        return False
+
+    print(f"Successfully removed AppxPackage: {package_name}")
+    return True
+
+
+print(get_appx_packages())
 
 # path = r"C:/Users/liles/OneDrive/Desktop/acltest"
 # acl_info = get_acl(path, include_audit=True)
