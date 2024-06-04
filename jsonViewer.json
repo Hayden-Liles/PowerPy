@@ -1,9 +1,15 @@
-{'Owner': 'HAYDEN-DESKTOP\\Hayden', 'Group': 'HAYDEN-DESKTOP\\None', 'AccessRules': [
-        {'IdentityReference': 'NT AUTHORITY\\SYSTEM', 'FileSystemRights': 'FullControl', 'AccessControlType': 'Allow', 'InheritanceFlags': 'ContainerInherit, ObjectInherit', 'PropagationFlags': 'None'
+{"Owner": "HAYDEN\\liles", "Group": "HAYDEN\\liles", "AccessRules": [
+        {"IdentityReference": "NT AUTHORITY\\SYSTEM", "FileSystemRights": "FullControl", "AccessControlType": "Allow", "InheritanceFlags": "ContainerInherit, ObjectInherit", "PropagationFlags": "None"
         },
-        {'IdentityReference': 'BUILTIN\\Administrators', 'FileSystemRights': 'FullControl', 'AccessControlType': 'Allow', 'InheritanceFlags': 'ContainerInherit, ObjectInherit', 'PropagationFlags': 'None'
+        {"IdentityReference": "BUILTIN\\Administrators", "FileSystemRights": "FullControl", "AccessControlType": "Allow", "InheritanceFlags": "ContainerInherit, ObjectInherit", "PropagationFlags": "None"
         },
-        {'IdentityReference': 'HAYDEN-DESKTOP\\Hayden', 'FileSystemRights': 'FullControl', 'AccessControlType': 'Allow', 'InheritanceFlags': 'ContainerInherit, ObjectInherit', 'PropagationFlags': 'None'
+        {"IdentityReference": "Hayden\\liles", "FileSystemRights": "FullControl", "AccessControlType": "Allow", "InheritanceFlags": "ContainerInherit, ObjectInherit", "PropagationFlags": "None"
+        },
+        {"IdentityReference": "NT AUTHORITY\\SYSTEM", "FileSystemRights": "FullControl", "AccessControlType": "Allow", "InheritanceFlags": "ContainerInherit, ObjectInherit", "PropagationFlags": "None"
+        },
+        {"IdentityReference": "BUILTIN\\Administrators", "FileSystemRights": "FullControl", "AccessControlType": "Allow", "InheritanceFlags": "ContainerInherit, ObjectInherit", "PropagationFlags": "None"
+        },
+        {"IdentityReference": "Hayden\\liles", "FileSystemRights": "FullControl", "AccessControlType": "Allow", "InheritanceFlags": "ContainerInherit, ObjectInherit", "PropagationFlags": "None"
         }
-    ]
+    ], "AuditRules": []
 }

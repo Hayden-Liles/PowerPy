@@ -1,6 +1,11 @@
 import clr
 import os
 import json
+
+clr.AddReference('mscorlib')
+clr.AddReference('System')
+clr.AddReference('System.Security')
+
 from System import Type, ArgumentException, Enum
 from System.IO import File, DirectoryInfo
 from System.Security.AccessControl import (
@@ -9,10 +14,6 @@ from System.Security.AccessControl import (
     InheritanceFlags, PropagationFlags
 )
 from Microsoft.Win32 import Registry
-
-clr.AddReference('mscorlib')
-clr.AddReference('System')
-clr.AddReference('System.Security')
 
 def parse_enum(enum_type, value):
     try:
@@ -78,7 +79,8 @@ def set_acl(path: str, acl_data: dict):
     except Exception as e:
         raise Exception(f"Failed to set ACL: {e}")
 
-path = r"C:/Users/Hayden/OneDrive/Desktop/acltest"
+path = r"C:/Users/liles/OneDrive/Desktop/acltest"
 acl_info = get_acl(path, include_audit=True)
 print(acl_info)
 set_acl(path, acl_info)
+
