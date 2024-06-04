@@ -1,15 +1,1 @@
-{"Owner": "HAYDEN\\liles", "Group": "HAYDEN\\liles", "AccessRules": [
-        {"IdentityReference": "NT AUTHORITY\\SYSTEM", "FileSystemRights": "FullControl", "AccessControlType": "Allow", "InheritanceFlags": "ContainerInherit, ObjectInherit", "PropagationFlags": "None"
-        },
-        {"IdentityReference": "BUILTIN\\Administrators", "FileSystemRights": "FullControl", "AccessControlType": "Allow", "InheritanceFlags": "ContainerInherit, ObjectInherit", "PropagationFlags": "None"
-        },
-        {"IdentityReference": "Hayden\\liles", "FileSystemRights": "FullControl", "AccessControlType": "Allow", "InheritanceFlags": "ContainerInherit, ObjectInherit", "PropagationFlags": "None"
-        },
-        {"IdentityReference": "NT AUTHORITY\\SYSTEM", "FileSystemRights": "FullControl", "AccessControlType": "Allow", "InheritanceFlags": "ContainerInherit, ObjectInherit", "PropagationFlags": "None"
-        },
-        {"IdentityReference": "BUILTIN\\Administrators", "FileSystemRights": "FullControl", "AccessControlType": "Allow", "InheritanceFlags": "ContainerInherit, ObjectInherit", "PropagationFlags": "None"
-        },
-        {"IdentityReference": "Hayden\\liles", "FileSystemRights": "FullControl", "AccessControlType": "Allow", "InheritanceFlags": "ContainerInherit, ObjectInherit", "PropagationFlags": "None"
-        }
-    ], "AuditRules": []
-}
+[{'PackageId': 'd2f7244d-4dc3-4b24-a730-ff828f917549', 'Name': 'myServiceCenter_Prod_10_2_3', 'Version': '0.0.0.1', 'VersionId': '42d7fba2-29b9-4857-9286-210c940c7b90'}, {'PackageId': '3f9a2285-9485-4515-af4e-32d49fa6a009', 'Name': 'SSH_SSHSecureShell_v3_2_01', 'Version': '0.0.0.1', 'VersionId': '02884728-8d00-4170-8d56-1cc01ae6f9f3'}, {'PackageId': '6e263cdc-990e-4421-b247-535f08a88877', 'Name': 'TechSmith_SnagIt2021_21_4_3_00', 'Version': '0.0.0.1', 'VersionId': '8a95098d-b925-41c0-a4a8-76f95ddb1419'}, {'PackageId': '179386f8-4b6e-482c-b179-97587817e387', 'Name': 'HP_HPDeviceManagerConsole_508_00', 'Version': '0.0.0.1', 'VersionId': '0acd79a2-4245-4d2c-bc11-266872a5f537'}]

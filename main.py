@@ -1,6 +1,7 @@
 import clr
 import os
 import json
+import subprocess
 
 clr.AddReference('mscorlib')
 clr.AddReference('System')
@@ -78,9 +79,40 @@ def set_acl(path: str, acl_data: dict):
         raise ArgumentException(f"Argument error: {e}")
     except Exception as e:
         raise Exception(f"Failed to set ACL: {e}")
+    
+#TODO - Need to add Active Directory functions
 
-path = r"C:/Users/liles/OneDrive/Desktop/acltest"
-acl_info = get_acl(path, include_audit=True)
-print(acl_info)
-set_acl(path, acl_info)
+def get_appv_packages():
+    # Define the PowerShell command
+    ps_command = """
+    $packages = Get-AppvClientPackage;
+    $output = @();
+    foreach ($package in $packages) {
+        $output += @{
+            Name = $package.Name;
+            Version = $package.Version;
+            PackageId = $package.PackageId;
+            VersionId = $package.VersionId;
+        };
+    }
+    ConvertTo-Json -InputObject $output -Compress
+    """
+
+    result = subprocess.run(["powershell", "-Command", ps_command], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+
+    if result.returncode!= 0:
+        print(f"Error executing PowerShell command: {result.stderr}")
+        return []
+
+    packages = json.loads(result.stdout)
+
+    return packages
+
+
+print(get_appv_packages())
+
+# path = r"C:/Users/liles/OneDrive/Desktop/acltest"
+# acl_info = get_acl(path, include_audit=True)
+# print(acl_info)
+# set_acl(path, acl_info)
 
